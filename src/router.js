@@ -1,15 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Login from './views/Login.vue'
 import Home from './views/Home.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path:'/login',
+      name: 'login',
+      component:Login
     },
     {
       path: '/about',
@@ -21,3 +27,8 @@ export default new Router({
     }
   ]
 })
+
+console.log(router)
+
+
+export default router
