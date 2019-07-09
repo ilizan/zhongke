@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Home from './views/Home.vue'
-
+import Cookies from 'js-cookie'
+import api from './http/api'
 Vue.use(Router)
 
 const router = new Router({
@@ -13,9 +14,9 @@ const router = new Router({
       component: Home
     },
     {
-      path:'/login',
+      path: '/login',
       name: 'login',
-      component:Login
+      component: Login
     },
     {
       path: '/about',
@@ -30,5 +31,31 @@ const router = new Router({
 
 console.log(router)
 
+router.beforeEach((to, from, next) => {
+  let token = Cookies.get('token')
+  let userId = JSON.parse(sessionStorage.getItem('user')).userId;
+  if (to.path == '/login') {
+    if (token) {//已存有token，跳转首页
+      next({ path: '/' })
+    } else {
+      next();
+    }
+  } else {
+    if (!token) {
+      next({ path: '/' })
+    } else {
+      //动态请求菜单
+      addMentRoutes(userId, to, from);
+      next();
+    }
+  }
+});
 
+function addMentRoutes(userId, to, from){
+  api.menu.menu({'userId':userId}).then(res =>{
+    console.log(res)
+  }).then(res=>{
+    
+  });
+}
 export default router

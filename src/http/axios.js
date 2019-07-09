@@ -16,7 +16,7 @@ axios.interceptors.request.use(
         } else {
             router.push('/login')
         }
-        console.log(config)
+        // console.log(config)
         // if (config.method === 'post') {
 
         // }
@@ -38,7 +38,7 @@ axios.interceptors.response.use(function (response) {
         data = response.data
     }
     return data;
-}, function (error) {
+}, function (err) {
     if (err && err.response) {
         switch (err.response.status) {
           case 400:
