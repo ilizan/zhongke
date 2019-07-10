@@ -5,7 +5,7 @@ import './element-variables.scss'
 import App from './App.vue'
 import router from './router'
 import api from './http'
-import store from './store'
+import store from './store/index'
 
 import mock from "@/mock/index"
 

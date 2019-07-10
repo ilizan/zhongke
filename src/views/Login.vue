@@ -36,7 +36,16 @@ export default {
     onSubmit(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          console.log(this.$api);
+          if (
+            this.loginForm.username != "admin" ||
+            this.loginForm.password != "admin"
+          ) {
+            this.$message({
+              message: "登录失败",
+              type: "error"
+            });
+            return;
+          }
           var loginData = {
             account: this.loginForm.username,
             password: this.loginForm.password,
