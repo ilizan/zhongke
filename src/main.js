@@ -8,12 +8,13 @@ import api from './http'
 import store from './store/index'
 
 import mock from "@/mock/index"
-
+import global_ from './global'
 Vue.config.productionTip = false
 
 Vue.use(ElementUI);
 Vue.use(api)
 
+Vue.prototype.GLOBAL = global_;
 
 new Vue({
   router,

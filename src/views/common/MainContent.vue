@@ -16,9 +16,10 @@
     top: 60px;
     right: 0;
     bottom: 0;
-    padding: 5px;
+    padding: 10px;
 }
 .position-left{
     left: 200px;
 }
+
 </style>

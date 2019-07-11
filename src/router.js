@@ -2,9 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Home from './views/Home.vue'
+import Welcome from './views/Welcome.vue'
 import Cookies from 'js-cookie'
 import api from './http/api'
 import store from './store/index'
+
 
 Vue.use(Router)
 
@@ -17,8 +19,8 @@ const router = new Router({
       children: [
         {
           path: '',
-          name: '系统介绍',
-          component: Home
+          name: 'welcome',
+          component: Welcome
         }
       ]
     },
@@ -26,19 +28,10 @@ const router = new Router({
       path: '/login',
       name: 'login',
       component: Login
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     }
   ]
 })
 
-console.log(router)
 
 router.beforeEach((to, from, next) => {
   let token = Cookies.get('token')
@@ -57,6 +50,7 @@ router.beforeEach((to, from, next) => {
       //动态请求菜单
       addMentRoutes(userId, to, from);
       next();
+      console.log('111')
     }
   }
 });
@@ -111,6 +105,13 @@ function addDynamicRoutes(menuList = [], routes = []) {
           index: menuList[i].id
         }
       }
+      let array = menuList[i].url.split('/');
+      let url = '';
+      for (let i = 0; i < array.length; i++) {
+        url += array[i].substring(0, 1).toUpperCase() + array[i].substring(1) + '/'
+      }
+      url = url.substring(0, url.length - 1);
+      route['component'] = resolve => require([`@/views/${url}`], resolve);
       routes.push(route)
     }
   }

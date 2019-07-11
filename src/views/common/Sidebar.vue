@@ -49,7 +49,7 @@ export default {
       console.log("handleselect");
     },
     goToUrl(itemTag) {
-      console.log(itemTag);
+      console.log(itemTag.url);
       // 通过菜单URL跳转至指定路由
       this.$router.push("/" + itemTag.url);
     }
