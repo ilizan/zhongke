@@ -4,3 +4,11 @@
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import "~element-ui/packages/theme-chalk/src/index";
+
+.pageToolbar{
+    padding-top: 20px;
+}
+.bottomPage{
+    margin-top: 20px;
+    text-align: right;
+}
