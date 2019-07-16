@@ -1,6 +1,6 @@
 <template>
     <div class="main-container position-left">
-        <!-- <router-view></router-view> -->
+        <router-view/>
         main
     </div>
 </template>

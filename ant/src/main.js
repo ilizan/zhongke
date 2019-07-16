@@ -5,6 +5,7 @@ import 'ant-design-vue/dist/antd.css'
 import router from './router/router'
 import api from './http'
 import store from './store'
+import mock from "@/mock/index"
 
 Vue.config.productionTip = false
 

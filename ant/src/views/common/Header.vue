@@ -32,7 +32,7 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 1030;
+  z-index: 999;
   height: 60px;
   line-height: 60px;
   background-color: rgba(180, 190, 190, 0.8);

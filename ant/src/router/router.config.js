@@ -6,36 +6,42 @@ export const constantRouterMap =
   [
     {
       path: '/',
-      name: 'home',
-      component: () => import('@/views/Home.vue')
+      redirect: '/welcome',
+      component: () => import('@/views/Home.vue'),
+      children: [
+        {
+          path: '/welcome',
+          name: 'welcome',
+          component: () => import('@/views/Welcome.vue')
+        }
+      ]
     },
     {
       path: '/login',
-      name: 'login',
       component: () => import('@/views/Login.vue')
-    },
-    // {
-    //   path: '/404',
-    //   component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404')
-    // }
+    }
   ]
-  // [
-  // {
-  //   path: '/user',
-  //   component: UserLayout,
-  //   redirect: '/user/login',
-  //   hidden: true,
-  //   children: [
-  //     {
-  //       path: 'login',
-  //       name: 'login',
-  //       component: () => import(/* webpackChunkName: "user" */ '@/views/user/Login')
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: '/404',
-  //   component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404')
-  // }
 
-  // ]
+export const navTreeData =
+  [
+    {
+      path: '/data',
+      name: 'data',
+      redirect: '/data/tables',
+      meta: { title: '列表' },
+      children: [
+        {
+          path: '/data/tables',
+          name: 'Tables',
+          component: () => import('@/views/data/tables'),
+          meta: { title: '分页' }
+        },
+        {
+          path: '/data/forms',
+          name: 'Forms',
+          component: () => import('@/views/data/forms'),
+          meta: { title: '工作台' }
+        }
+      ]
+    }
+  ]

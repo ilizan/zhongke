@@ -12,7 +12,8 @@
               placeholder="登录名"
               v-decorator="[
              'userName',
-             {rules:[{required:true,message:'请输入登录名'}]}]"
+             {
+               rules:[{required:true,message:'请输入登录名'}]}]"
             />
           </a-form-item>
           <a-form-item>
@@ -39,6 +40,7 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 export default {
   name: "login",
   data() {
@@ -53,11 +55,34 @@ export default {
       this.form.validateFields((err, values) => {
         if (!err) {
           //验证通过
-          const data = { ...values };
-          this.$api.login.login(data)
+          const loginData = { ...values };
+          this.$api.login
+            .login(loginData)
+            .then(res => {
+              if (res.code == 200) {
+                Cookies.set('user',res.data)
+                Cookies.set('token',res.data.token)
+                this.$router.push({ path: "/" });
+                setTimeout(() => {
+                  this.$notification.success({
+                    message:'登录成功',
+                    description:`${loginData.userName}，欢迎登录`
+                  })
+                }, 1000);
+              } else {
+                this.$message.error("登录失败");
+              }
+            })
+            .catch(res => {
+              console.log(res);
+              this.$message.error("登录失败");
+            });
         }
       });
     }
+  },
+  mounted() {
+    this.form.setFieldsValue({ userName: "admin", password: "admin" });
   }
 };
 </script>
