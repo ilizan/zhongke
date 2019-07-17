@@ -85,7 +85,6 @@ export default {
   },
   methods: {
     handleClick(e) {
-      console.log("click", e);
     },
     goToUrl(itemTag) {
       var surl = itemTag.path;
@@ -96,7 +95,6 @@ export default {
   },
   mounted() {
     this.menuTree = JSON.parse(Cookies.get("menuTree"));
-    console.log(this.$router.options);
   }
 };
 </script>
@@ -119,7 +117,7 @@ export default {
   text-align: center;
 }
 .sidebar-menu .menu-var {
-  width: 200px;
+  width: 256px;
 }
 .sidebar-menu .div-menu {
   position: absolute;

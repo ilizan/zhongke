@@ -1,7 +1,6 @@
 <template>
     <div class="main-container position-left">
         <router-view/>
-        main
     </div>
 </template>
 
@@ -20,7 +19,7 @@
     padding: 10px;
 }
 .position-left{
-    left: 200px;
+    left: 256px;
 }
 
 </style>

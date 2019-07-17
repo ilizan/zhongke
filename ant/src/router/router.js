@@ -23,31 +23,33 @@ router.beforeEach((to, from, next) => {
     if (!user) {
       next({ path: '/login' })
     } else {
-      let menuFlag = Cookies.get('menuTree');
-      //动态请求菜单
-      addMentRoutes(1, to, from);
-
       //跳转
-      next();
-      console.log('跳转')
+      if (!store.state.menuRouteLoaded) {
+        //动态请求菜单
+        addMentRoutes(1, to, from);
+        next({ ...to, replace: true })
+      }else{
+        next();
+      }
     }
   }
 })
 
 function addMentRoutes(userId, to, from) {
-  if (store.state.menuRouteLoaded) {
-    console.log('动态菜单和路由已经存在.')
-    return
-  }
-  //动态获得菜单权限
-  let dyRoutes = addDynamicRoutes(navTreeData);
-  // //绑定静态路由
-  handleStaticComponent(router, dyRoutes);
+  // if (!store.state.menuRouteLoaded) {
+    // console.log('动态菜单和路由已经存在.')
+    // return
 
-  router.addRoutes(router.options.routes)
-  Cookies.set('menuTree', navTreeData)
-  // 保存加载状态
-  store.commit('menuRouteLoaded', true)
+    //动态获得菜单权限
+    let dyRoutes = addDynamicRoutes(navTreeData);
+    // //绑定静态路由
+    handleStaticComponent(router, dyRoutes);
+    router.addRoutes(router.options.routes)
+    Cookies.set('menuTree', navTreeData)
+
+    // 保存加载状态
+    store.commit('menuRouteLoaded', true)
+  // }
 }
 
 function handleStaticComponent(router, dynamicRoutes) {
@@ -73,6 +75,8 @@ function addDynamicRoutes(menuList = [], routes = []) {
   if (temp.length >= 1) {
     addDynamicRoutes(temp, routes)
   } else {
+    console.log('动态路由加载...')
+    console.log('动态路由加载完成.')
   }
   return routes
 }

@@ -50,6 +50,7 @@ router.beforeEach((to, from, next) => {
       //动态请求菜单
       addMentRoutes(userId, to, from);
       next();
+      console.log(to)
       console.log('111')
     }
   }
@@ -61,13 +62,13 @@ function addMentRoutes(userId, to, from) {
     return
   }
   api.menu.menu({ 'userId': userId }).then(res => {
-    console.log(res)
+    console.log(res.data)
     //添加动态路由
     let dynamicRoutes = addDynamicRoutes(res.data);
-
+    console.log(dynamicRoutes)
     //绑定静态路由
     handleStaticComponent(router, dynamicRoutes);
-
+    console.log(router.options.routes)
     router.addRoutes(router.options.routes)
     // 保存加载状态
     store.commit('menuRouteLoaded', true)
@@ -112,10 +113,11 @@ function addDynamicRoutes(menuList = [], routes = []) {
       }
       url = url.substring(0, url.length - 1);
       route['component'] = resolve => require([`@/views/${url}`], resolve);
+      console.log(route)
       routes.push(route)
     }
   }
-
+  console.log('---'+temp.length)
   if (temp.length >= 1) {
     addDynamicRoutes(temp, routes)
   } else {

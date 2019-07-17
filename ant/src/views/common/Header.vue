@@ -40,7 +40,7 @@ export default {
   border-left: 1px dashed #ccc;
 }
 .position-left {
-  left: 200px;
+  left: 256px;
 }
 .toolbar {
   float: right;

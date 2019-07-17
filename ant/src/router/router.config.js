@@ -10,7 +10,7 @@ export const constantRouterMap =
       component: () => import('@/views/Home.vue'),
       children: [
         {
-          path: '/welcome',
+          path: '',
           name: 'welcome',
           component: () => import('@/views/Welcome.vue')
         }
@@ -18,6 +18,7 @@ export const constantRouterMap =
     },
     {
       path: '/login',
+      name: 'login',
       component: () => import('@/views/Login.vue')
     }
   ]
@@ -27,18 +28,19 @@ export const navTreeData =
     {
       path: '/data',
       name: 'data',
-      redirect: '/data/tables',
       meta: { title: '列表' },
+      redirect: '/welcome',
+      // component: () => import('@/views/Home.vue'),
       children: [
         {
           path: '/data/tables',
-          name: 'Tables',
+          name: 'tables',
           component: () => import('@/views/data/tables'),
           meta: { title: '分页' }
         },
         {
           path: '/data/forms',
-          name: 'Forms',
+          name: 'forms',
           component: () => import('@/views/data/forms'),
           meta: { title: '工作台' }
         }
