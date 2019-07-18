@@ -1,15 +1,26 @@
 <template>
-  <div id="app">
-    <!-- <div id="nav">
+  <a-locale-provider :locale="zh_CN">
+    <div id="app">
+      <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div> -->
-    <router-view/>
-  </div>
+      </div>-->
+      <router-view />
+    </div>
+  </a-locale-provider>
 </template>
-
+<script>
+import zh_CN from "ant-design-vue/lib/locale-provider/zh_CN";
+export default {
+  data() {
+    return {
+      zh_CN
+    };
+  }
+};
+</script>
 <style lang="less">
-@import url('./global.module.less');
+@import url("./global.module.less");
 #app {
   height: 100%;
 }

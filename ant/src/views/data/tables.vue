@@ -1,5 +1,5 @@
 <template>
-  <div class="tables bgMain">
+  <div class="pages bgMain">
     <div class="topTool">
       <a-breadcrumb>
         <a-breadcrumb-item>首页</a-breadcrumb-item>
@@ -29,9 +29,8 @@
                 <a-form-item label="条件3">
                   <a-select
                     mode="multiple"
-                    placeholder="Please select"
+                    placeholder="请选择"
                     :defaultValue="['a1', 'b2']"
-                    style="width: 100%"
                   >
                     <a-select-option
                       v-for="i in 25"
@@ -59,7 +58,7 @@
           </a-row>
         </a-form>
       </div>
-      <a-table :columns="columns" :dataSource="data">
+      <a-table :columns="columns" :dataSource="data" :loading="loading">
         <a slot="name" slot-scope="text" href="javascript:;">{{text}}</a>
         <span slot="customTitle">
           <a-icon type="smile-o" />Name
@@ -77,8 +76,29 @@
       @ok="handleOk"
       :confirmLoading="confirmLoading"
       @cancel="visible = false"
+      okText="确认"
+      cancelText="取消"
     >
-      <p>text</p>
+      <a-form layout="horizontal">
+        <a-form-item :label-col="{span:4}" :wrapper-col="{span:18}" label="信息1">
+          <a-input placeholder="请输入" />
+        </a-form-item>
+        <a-form-item :label-col="{span:4}" :wrapper-col="{span:18}" label="信息2">
+          <a-input placeholder="请输入" />
+        </a-form-item>
+        <a-form-item :label-col="{span:4}" :wrapper-col="{span:18}" label="信息3">
+          <a-select
+            mode="multiple"
+            placeholder="请选择"
+            :defaultValue="['a1', 'b2']"
+          >
+            <a-select-option
+              v-for="i in 25"
+              :key="(i + 9).toString(36) + i"
+            >{{(i + 9).toString(36) + i}}</a-select-option>
+          </a-select>
+        </a-form-item>
+      </a-form>
     </a-modal>
   </div>
 </template>
@@ -145,20 +165,25 @@ export default {
       data,
       columns,
       visible: false,
+      loading: true,
       confirmLoading: false
     };
   },
   methods: {
     handleOk(e) {
-      console.log(1)
+      console.log(1);
       this.confirmLoading = true;
-      setTimeout(()=>{
+      setTimeout(() => {
         this.visible = false;
         this.confirmLoading = false;
-      },1000)
+      }, 500);
     }
   },
-  mounted() {}
+  mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 1000);
+  }
 };
 </script>
 

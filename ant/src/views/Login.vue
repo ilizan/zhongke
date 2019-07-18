@@ -68,7 +68,7 @@ export default {
                     message:'登录成功',
                     description:`${loginData.userName}，欢迎登录`
                   })
-                }, 1000);
+                }, 500);
               } else {
                 this.$message.error("登录失败");
               }

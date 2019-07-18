@@ -58,7 +58,7 @@
               @click="goToUrl(itemtag)"
               v-for="itemtag in item.children"
               v-bind:key="itemtag.id"
-            >{{itemtag.name}}</a-menu-item>
+            >{{itemtag.meta.title}}</a-menu-item>
           </a-sub-menu>
         </template>
       </a-menu>
@@ -88,7 +88,6 @@ export default {
     },
     goToUrl(itemTag) {
       var surl = itemTag.path;
-      console.log(surl);
       // 通过菜单URL跳转至指定路由
       this.$router.push("/" + surl);
     }

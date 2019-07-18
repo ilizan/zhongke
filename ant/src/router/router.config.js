@@ -20,6 +20,10 @@ export const constantRouterMap =
       path: '/login',
       name: 'login',
       component: () => import('@/views/Login.vue')
+    },
+    {
+      path: '*',
+      component: () => import('@/views/404.vue')
     }
   ]
 
@@ -42,7 +46,13 @@ export const navTreeData =
           path: '/data/forms',
           name: 'forms',
           component: () => import('@/views/data/forms'),
-          meta: { title: '工作台' }
+          meta: { title: '表单' }
+        },
+        {
+          path: '/data/calendar',
+          name: 'calendar',
+          component: () => import('@/views/data/calendar'),
+          meta: { title: '日历' }
         }
       ]
     }
