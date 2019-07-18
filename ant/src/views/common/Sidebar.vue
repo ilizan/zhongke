@@ -105,7 +105,7 @@ export default {
   top: 0px;
   left: 0;
   bottom: 0;
-  z-index: 1020;
+  z-index: 999;
 }
 .sidebar-menu .logo {
   position: absolute;

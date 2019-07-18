@@ -16,7 +16,7 @@
     top: 60px;
     right: 0;
     bottom: 0;
-    padding: 10px;
+    // padding: 20px;
 }
 .position-left{
     left: 256px;

@@ -1,27 +1,64 @@
 <template>
-  <div class="tables">
+  <div class="tables bgMain">
     <div class="topTool">
-      <a-form layout="inline">
-        <a-row :gutter='20'>
-          <a-col :span="8">
-            <a-form-item label="条件1">
-              <a-input placeholder="请输入" />
-            </a-form-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-item label="条件2">
-              <a-input placeholder="请输入" />
-            </a-form-item>
-          </a-col>
-          <a-col :span="12">
-            <a-form-item>
-              <a-button type="primary">查询</a-button>
-            </a-form-item>
-          </a-col>
-        </a-row>
-      </a-form>
+      <a-breadcrumb>
+        <a-breadcrumb-item>首页</a-breadcrumb-item>
+        <a-breadcrumb-item>
+          <a href>列表</a>
+        </a-breadcrumb-item>
+        <a-breadcrumb-item>分页</a-breadcrumb-item>
+      </a-breadcrumb>
+      <h1 class="title">xxx模块</h1>
     </div>
     <div class="dataList">
+      <div class="dataForm">
+        <a-form layout="inline">
+          <a-row :gutter="20">
+            <a-col :span="8">
+              <a-form-item label="条件1">
+                <a-input placeholder="请输入" />
+              </a-form-item>
+            </a-col>
+            <a-col :span="8">
+              <a-form-item label="条件2">
+                <a-input placeholder="请输入" />
+              </a-form-item>
+            </a-col>
+            <div v-show="advanced">
+              <a-col :span="8">
+                <a-form-item label="条件3">
+                  <a-select
+                    mode="multiple"
+                    placeholder="Please select"
+                    :defaultValue="['a1', 'b2']"
+                    style="width: 100%"
+                  >
+                    <a-select-option
+                      v-for="i in 25"
+                      :key="(i + 9).toString(36) + i"
+                    >{{(i + 9).toString(36) + i}}</a-select-option>
+                  </a-select>
+                </a-form-item>
+              </a-col>
+            </div>
+            <a-col :span="!advanced && 8 ||24">
+              <a-form-item :style="advanced && {float:'right'} || {}">
+                <a-button type="primary">查询</a-button>
+                <a-button style="margin-left: 8px;">重置</a-button>
+                <a @click="advanced=!advanced" style="margin-left: 8px">
+                  {{ advanced ? '收起' : '展开' }}
+                  <a-icon :type="advanced ? 'up' : 'down'" />
+                </a>
+              </a-form-item>
+            </a-col>
+            <a-col :span="24">
+              <a-form-item style="float:right">
+                <a-button type="primary" @click="visible = true">新增</a-button>
+              </a-form-item>
+            </a-col>
+          </a-row>
+        </a-form>
+      </div>
       <a-table :columns="columns" :dataSource="data">
         <a slot="name" slot-scope="text" href="javascript:;">{{text}}</a>
         <span slot="customTitle">
@@ -34,6 +71,15 @@
         <span slot="action" slot-scope="text, record">{{record.name}}</span>
       </a-table>
     </div>
+    <a-modal
+      title="Title"
+      :visible="visible"
+      @ok="handleOk"
+      :confirmLoading="confirmLoading"
+      @cancel="visible = false"
+    >
+      <p>text</p>
+    </a-modal>
   </div>
 </template>
 
@@ -95,13 +141,26 @@ export default {
   name: "tables",
   data() {
     return {
+      advanced: false,
       data,
-      columns
+      columns,
+      visible: false,
+      confirmLoading: false
     };
-  }
+  },
+  methods: {
+    handleOk(e) {
+      console.log(1)
+      this.confirmLoading = true;
+      setTimeout(()=>{
+        this.visible = false;
+        this.confirmLoading = false;
+      },1000)
+    }
+  },
+  mounted() {}
 };
 </script>
 
 <style lang="scss" scoped>
-
 </style>
