@@ -8,7 +8,8 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="less">
+@import url('./global.module.less');
 #app {
   height: 100%;
 }

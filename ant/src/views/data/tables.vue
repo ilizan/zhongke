@@ -1,6 +1,26 @@
 <template>
   <div class="tables">
-    <div class="topTool"></div>
+    <div class="topTool">
+      <a-form layout="inline">
+        <a-row :gutter='20'>
+          <a-col :span="8">
+            <a-form-item label="条件1">
+              <a-input placeholder="请输入" />
+            </a-form-item>
+          </a-col>
+          <a-col :span="8">
+            <a-form-item label="条件2">
+              <a-input placeholder="请输入" />
+            </a-form-item>
+          </a-col>
+          <a-col :span="12">
+            <a-form-item>
+              <a-button type="primary">查询</a-button>
+            </a-form-item>
+          </a-col>
+        </a-row>
+      </a-form>
+    </div>
     <div class="dataList">
       <a-table :columns="columns" :dataSource="data">
         <a slot="name" slot-scope="text" href="javascript:;">{{text}}</a>
@@ -11,18 +31,9 @@
           {{tags}}
           <a-tag v-for="tag in tags" color="blue" :key="tag">{{tag}}</a-tag>
         </span>
-        <span slot="action" slot-scope="text, record">
-          <a href="javascript:;">Invite 一 {{record.name}}</a>
-          <a-divider type="vertical" />
-          <a href="javascript:;">Delete</a>
-          <a-divider type="vertical" />
-          <a href="javascript:;" class="ant-dropdown-link">
-            More actions
-            <a-icon type="down" />
-          </a>
-        </span>
+        <span slot="action" slot-scope="text, record">{{record.name}}</span>
       </a-table>
-    </div>div.
+    </div>
   </div>
 </template>
 
@@ -85,13 +96,12 @@ export default {
   data() {
     return {
       data,
-      columns,
-    }
-  },
+      columns
+    };
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-.topTool {
-}
+
 </style>

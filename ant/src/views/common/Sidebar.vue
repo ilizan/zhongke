@@ -112,8 +112,10 @@ export default {
   top: 0px;
   height: 60px;
   line-height: 60px;
-  background: rgba(180, 190, 190, 0.8);
+  background: #FFF;
   cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  border-right:1px solid #ccc;
   text-align: center;
 }
 .sidebar-menu .menu-var {

@@ -35,9 +35,9 @@ export default {
   z-index: 999;
   height: 60px;
   line-height: 60px;
-  background-color: rgba(180, 190, 190, 0.8);
+  background-color: #FFF;
   padding: 0 5px;
-  border-left: 1px dashed #ccc;
+  border-bottom: 1px solid #ccc;
 }
 .position-left {
   left: 256px;
