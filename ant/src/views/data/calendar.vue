@@ -12,10 +12,13 @@
     </div>
     <div class="dataList">
       <h3>
-        你选中的日期：{{sa2}}，事项：
-        <a-tag v-for="item in infos" :key="item.id">{{ item.content }}</a-tag>
+        你选中的日期：{{sa2}}
+        <template v-if="infos.length>0">
+          ，事项：
+          <a-tag v-for="item in infos" :key="item.id">{{ item.content }}</a-tag>
+        </template>
       </h3>
-      <a-calendar @select="onSelect" @panelChange="onPanelChange">
+      <a-calendar :value="defaultValues" @select="onSelect" @panelChange="onPanelChange">
         <p class="events" slot="dateCellRender" slot-scope="value">
           <span v-for="item in getListData(value)" :key="item.content">
             {{item.content}}
@@ -35,6 +38,7 @@ export default {
     return {
       sa: "",
       sa2: "",
+      defaultValues: moment(),
       infos: [],
       dataList: [
         {
@@ -95,9 +99,16 @@ export default {
     },
     onPanelChange(value, mode) {
       console.log(value, mode);
+    },
+    getDateDay() {
+      let thisDate = new Date();
+      let preDate = moment(new Date(thisDate.getTime() - 24 * 60 * 60 * 1000)).format('YYYY-MM-DD');
+      this.defaultValues = moment(preDate);
     }
   },
-  mounted() {}
+  mounted() {
+    this.getDateDay();
+  }
 };
 </script>
 

@@ -8,6 +8,10 @@ import router from './router/router'
 import api from './http'
 import store from './store'
 import mock from "@/mock/index"
+import FullCalendar from 'vue-fullcalendar'
+
+// Vue.component('full-calendar', fullCalendar)
+Vue.use(FullCalendar)
 
 Vue.config.productionTip = false
 

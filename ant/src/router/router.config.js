@@ -53,6 +53,18 @@ export const navTreeData =
           name: 'calendar',
           component: () => import('@/views/data/calendar'),
           meta: { title: '日历' }
+        },
+        {
+          path: '/data/calendar2',
+          name: 'calendar2',
+          component: () => import('@/views/data/calendar2'),
+          meta: { title: '日历2' }
+        },
+        {
+          path: '/data/gchars',
+          name: 'gchars',
+          component: () => import('@/views/data/gchars'),
+          meta: { title: '流程图(未)' }
         }
       ]
     }

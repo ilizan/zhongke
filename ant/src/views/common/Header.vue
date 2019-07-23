@@ -8,7 +8,7 @@
             <span class="user">欢迎您，{{user.userName}}。</span>
             <a-menu slot="overlay">
               <a-menu-item>
-                <a href="javascript:;">个人信息</a>
+                <a href="javascript:;" @click="showModal()">个人信息</a>
               </a-menu-item>
               <a-menu-item>
                 <a @click="logout()" href="javascript:;">退出</a>
@@ -18,18 +18,33 @@
         </li>
       </ul>
     </span>
+    <a-modal title="个人信息" v-model="visible" @ok="handleOk">
+      <a-form layout="horizontal">
+        <a-form-item label="登录名"
+         :label-col="formItemLayout.labelCol"
+         :wrapper-col="formItemLayout.wrapperCol"
+        >
+          <span class="ant-form-text">China</span>
+        </a-form-item>
+      </a-form>
+      <div id="qrcode" ref="qrcode"></div>
+    </a-modal>
   </div>
 </template>
 
 <script>
 import moment from "moment";
 import Cookies from "js-cookie";
+import QRCode from "qrcodejs2";
+
 export default {
   name: "Header",
   data() {
     return {
+      visible: false,
       user: JSON.parse(Cookies.get("user")),
-      time: ""
+      time: "",
+      formItemLayout: { labelCol: { span: 4 }, wrapperCol: { span: 20 } }
     };
   },
   methods: {
@@ -55,10 +70,29 @@ export default {
       arr.forEach(item => {
         Cookies.remove(item);
       });
+    },
+    showModal() {
+      this.visible = true;
+      setTimeout(() => {
+        this.qrcode();
+      }, 100);
+    },
+    handleOk(e) {
+      console.log(e);
+      this.visible = false;
+    },
+    qrcode() {
+      document.getElementById('qrcode').innerHTML = '';
+      let qrcode = new QRCode("qrcode", {
+        width: 100,
+        height: 100, // 高度  [图片上传失败...(image-9ad77b-1525851843730)]
+        text: "588888888" // 二维码内容
+      });
+      console.log(qrcode);
     }
   },
   mounted() {
-    this.int()
+    this.int();
   }
 };
 </script>
