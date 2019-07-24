@@ -14,6 +14,7 @@
       <h2>日历</h2>
       <div>
           <FullCalendar defaultView="dayGridMonth" :plugins="calendarPlugins" />
+          
       </div>
     </div>
   </div>
