@@ -11,17 +11,37 @@
       <h1 class="title">日历2</h1>
     </div>
     <div class="dataList">
-        <h2>日历</h2>
-        <div>
-            
-        </div>
+      <h2>日历</h2>
+      <div>
+          <FullCalendar defaultView="dayGridMonth" :plugins="calendarPlugins" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import FullCalendar from "@fullcalendar/vue";
+import dayGridPlugin from "@fullcalendar/daygrid";
+export default {
+  components: {
+    FullCalendar // make the <FullCalendar> tag available
+  },
+  data() {
+    return {
+      calendarPlugins: [ dayGridPlugin ]
+    }
+  },
+  methods: {
+      
+  },
+  mounted() {
+      
+  },
+};
 </script>
 
 <style lang="scss" scoped>
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+
 </style>
