@@ -61,11 +61,17 @@ export const navTreeData =
           meta: { title: '日历2' }
         },
         {
-          path: '/data/gchars',
-          name: 'gchars',
-          component: () => import('@/views/data/gchars'),
-          meta: { title: '流程图(未)' }
+          path: '/data/task',
+          name: 'task',
+          component: () => import('@/views/data/task'),
+          meta: { title: '任务' }
         }
+        // {
+        //   path: '/data/gchars',
+        //   name: 'gchars',
+        //   component: () => import('@/views/data/gchars'),
+        //   meta: { title: '流程图(未)' }
+        // }
       ]
     }
   ]

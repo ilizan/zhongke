@@ -8,7 +8,7 @@ import router from './router/router'
 import api from './http'
 import store from './store'
 import mock from "@/mock/index"
-
+import 'babel-polyfill'//兼容ie，360兼容模式
 
 
 

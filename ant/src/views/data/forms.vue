@@ -35,7 +35,7 @@
           <a-input placeholder="请输入" />
         </a-form-item>
         <a-form-item
-          label="信息3"
+          label="时间段"
           :label-col="formItemLayout.labelCol"
           :wrapper-col="formItemLayout.wrapperCol"
         >

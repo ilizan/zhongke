@@ -88,6 +88,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+body *{
+  border:1px solid #ccc;
+}
 .loginMain {
   position: relative;
   height: 100%;
