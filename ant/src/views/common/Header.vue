@@ -20,14 +20,21 @@
     </span>
     <a-modal title="个人信息" v-model="visible" @ok="handleOk">
       <a-form layout="horizontal">
-        <a-form-item label="登录名"
-         :label-col="formItemLayout.labelCol"
-         :wrapper-col="formItemLayout.wrapperCol"
+        <a-form-item
+          label="登录名"
+          :label-col="formItemLayout.labelCol"
+          :wrapper-col="formItemLayout.wrapperCol"
         >
-          <span class="ant-form-text">China</span>
+          <span class="ant-form-text">{{user.userName}}</span>
+        </a-form-item>
+        <a-form-item
+          label="二维码"
+          :label-col="formItemLayout.labelCol"
+          :wrapper-col="formItemLayout.wrapperCol"
+        >
+          <div id="qrcode" ref="qrcode"></div>
         </a-form-item>
       </a-form>
-      <div id="qrcode" ref="qrcode"></div>
     </a-modal>
   </div>
 </template>
@@ -82,11 +89,11 @@ export default {
       this.visible = false;
     },
     qrcode() {
-      document.getElementById('qrcode').innerHTML = '';
+      document.getElementById("qrcode").innerHTML = "";
       let qrcode = new QRCode("qrcode", {
         width: 100,
         height: 100, // 高度  [图片上传失败...(image-9ad77b-1525851843730)]
-        text: "588888888" // 二维码内容
+        text: this.user.userName // 二维码内容
       });
       console.log(qrcode);
     }

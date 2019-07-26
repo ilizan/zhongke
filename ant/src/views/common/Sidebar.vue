@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-menu">
-    <div class="menu-var logo">logo</div>
+    <div class="menu-var logo">中科crm</div>
     <div class="menu-var div-menu">
       <!-- <a-menu
         @click="handleClick"
@@ -116,6 +116,7 @@ export default {
   border-bottom: 1px solid #ccc;
   border-right:1px solid #ccc;
   text-align: center;
+  font-size: 22px;
 }
 .sidebar-menu .menu-var {
   width: 256px;

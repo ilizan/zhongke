@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 export default {
   name: "login",
   data() {
@@ -56,27 +56,34 @@ export default {
         if (!err) {
           //验证通过
           const loginData = { ...values };
-          this.$api.login
-            .login(loginData)
-            .then(res => {
-              if (res.code == 200) {
-                Cookies.set('user',res.data)
-                Cookies.set('token',res.data.token)
-                this.$router.push({ path: "/" });
-                setTimeout(() => {
-                  this.$notification.success({
-                    message:'登录成功',
-                    description:`${loginData.userName}，欢迎登录`
-                  })
-                }, 500);
-              } else {
+          if (loginData.userName == "admin" && loginData.password == "admin") {
+            this.$api.login
+              .login(loginData)
+              .then(res => {
+                if (res.code == 200) {
+                  Cookies.set("user", res.data);
+                  Cookies.set("token", res.data.token);
+                  this.$router.push({ path: "/" });
+                  setTimeout(() => {
+                    this.$notification.success({
+                      message: "登录成功",
+                      description: `${loginData.userName}，欢迎登录`
+                    });
+                  }, 500);
+                } else {
+                  this.$message.error("登录失败");
+                }
+              })
+              .catch(res => {
+                console.log(res);
                 this.$message.error("登录失败");
-              }
-            })
-            .catch(res => {
-              console.log(res);
-              this.$message.error("登录失败");
+              });
+          } else {
+            this.$notification.error({
+              message: "登录失败",
+              description: "登录名或密码错误，登录名为admin"
             });
+          }
         }
       });
     }
@@ -88,8 +95,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body *{
-  border:1px solid #ccc;
+body * {
+  border: 1px solid #ccc;
 }
 .loginMain {
   position: relative;
