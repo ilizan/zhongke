@@ -14,7 +14,7 @@
       <!-- <div id='draggable-el' data-event='{ title: "my event", duration: "02:00" }'>drag me</div> -->
       <a-button @click="infoMol = true">添加事项</a-button>
       <hr />
-      <div>
+      <div style="width:500px;">
         <FullCalendar
         @dateClick="handleDateClick"
         @select="selectDateClick"
@@ -26,7 +26,7 @@
         selectMirror=true
         unselectAuto=false
         unselectCancel="cla1"
-        droppable: true
+        droppable=true
         :header="headers"
         />
       </div>
@@ -109,10 +109,10 @@ export default {
     selectDateClick(info) {
       console.log(info);
       console.log("selected " + info.startStr + " to " + info.endStr);
-      var t = prompt(`请输入${info.startStr}-${info.endStr}的事项：`);
-      if (t) {
-        console.log(t);
-      }
+      // var t = prompt(`请输入${info.startStr}-${info.endStr}的事项：`);
+      // if (t) {
+      //   console.log(t);
+      // }
     },
     addData() {
       this.infoMol = false;

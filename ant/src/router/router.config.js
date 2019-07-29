@@ -65,6 +65,12 @@ export const navTreeData =
           name: 'task',
           component: () => import('@/views/data/task'),
           meta: { title: '任务' }
+        },
+        {
+          path: '/data/echarts',
+          name: 'echarts',
+          component: () => import('@/views/data/echarts'),
+          meta: { title: 'echarts' }
         }
         // {
         //   path: '/data/gchars',

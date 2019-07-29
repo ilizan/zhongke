@@ -9,8 +9,9 @@ import api from './http'
 import store from './store'
 import mock from "@/mock/index"
 import 'babel-polyfill'//兼容ie，360兼容模式
+import echarts from 'echarts'
 
-
+Vue.prototype.$echarts = echarts
 
 Vue.config.productionTip = false
 
