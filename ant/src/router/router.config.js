@@ -32,10 +32,17 @@ export const navTreeData =
     {
       path: '/data',
       name: 'data',
-      meta: { title: '列表' },
-      redirect: '/welcome',
+      meta: { title: '菜单' },
+      redirect: '/',
       // component: () => import('@/views/Home.vue'),
       children: [
+        {
+          path: '',
+          name: '',
+          flShow:true,
+          component: () => import('@/views/Welcome.vue'),
+          meta: { title: '' }
+        },
         {
           path: '/data/tables',
           name: 'tables',
@@ -71,6 +78,12 @@ export const navTreeData =
           name: 'echarts',
           component: () => import('@/views/data/echarts'),
           meta: { title: 'echarts' }
+        },
+        {
+          path: '/data/edit',
+          name: 'edit',
+          component: () => import('@/views/data/edit'),
+          meta: { title: '编辑器' }
         }
         // {
         //   path: '/data/gchars',

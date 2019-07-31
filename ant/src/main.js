@@ -11,6 +11,9 @@ import mock from "@/mock/index"
 import 'babel-polyfill'//兼容ie，360兼容模式
 import echarts from 'echarts'
 
+// import VueQuillEditor from 'vue-quill-editor'  //可在组件里单独引入
+// Vue.use(VueQuillEditor)
+
 Vue.prototype.$echarts = echarts
 
 Vue.config.productionTip = false

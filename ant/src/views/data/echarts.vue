@@ -129,7 +129,7 @@ export default {
       //绘制
       myChart.setOption({
         title: {
-          text: "title",
+          text: "",
           x: "center"
         },
         tooltip: {
@@ -208,7 +208,7 @@ export default {
       //绘制
       let option = {
         title: {
-          text: "title",
+          text: "",
           x: "center"
         },
         tooltip: {

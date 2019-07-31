@@ -54,11 +54,13 @@
               <a-icon type="appstore" />
               <span>{{item.meta.title}}</span>
             </span>
+            <template v-for="itemtag in item.children">
             <a-menu-item
               @click="goToUrl(itemtag)"
-              v-for="itemtag in item.children"
               v-bind:key="itemtag.id"
+              v-if="!itemtag.flShow"
             >{{itemtag.meta.title}}</a-menu-item>
+            </template>
           </a-sub-menu>
         </template>
       </a-menu>
