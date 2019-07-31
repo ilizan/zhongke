@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-menu">
-    <div class="menu-var logo">中科crm</div>
+    <div class="menu-var logo" @click='goToUrl({path:""})'>中科crm</div>
     <div class="menu-var div-menu">
       <!-- <a-menu
         @click="handleClick"
@@ -115,8 +115,8 @@ export default {
   line-height: 60px;
   background: #FFF;
   cursor: pointer;
-  border-bottom: 1px solid #ccc;
-  border-right:1px solid #ccc;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  z-index: 10;
   text-align: center;
   font-size: 22px;
 }
