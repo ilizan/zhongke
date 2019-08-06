@@ -5,13 +5,33 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    menuRouteLoaded: false
+    menuRouteLoaded: false,
+    arr: [1, 2, 5, 3]
   },
-  mutations: {
-    menuRouteLoaded(state, menuRouteLoaded){
-      state.menuRouteLoaded = menuRouteLoaded
+  getters: {
+    arrSort(state) {
+      let arr = [];
+      state.arr.forEach(item => {
+        arr.push(parseInt(item));
+      });
+      let com = function (a, b) {
+        return a - b
+      }
+      return arr.sort(com);
     }
   },
+  mutations: {
+    menuRouteLoaded(state, menuRouteLoaded) {
+      state.menuRouteLoaded = menuRouteLoaded
+    },
+    setArr(state, arrData) {
+      state.arr.push(arrData);
+    },
+    delArr(state, st) {
+      state.arr = st;
+    }
+  },
+
   actions: {
 
   }

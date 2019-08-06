@@ -2,6 +2,7 @@
   <div class="header position-left">
     <span class="toolbar">
       <ul>
+        <li>{{arr}}</li>
         <li>{{time}}</li>
         <li>
           <a-dropdown>
@@ -43,7 +44,7 @@
 import moment from "moment";
 import Cookies from "js-cookie";
 import QRCode from "qrcodejs2";
-
+import store from "../../store";
 export default {
   name: "Header",
   data() {
@@ -53,6 +54,11 @@ export default {
       time: "",
       formItemLayout: { labelCol: { span: 4 }, wrapperCol: { span: 20 } }
     };
+  },
+  computed: {
+    arr() {
+      return store.state.arr;
+    }
   },
   methods: {
     int() {

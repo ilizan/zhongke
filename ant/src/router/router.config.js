@@ -84,6 +84,12 @@ export const navTreeData =
           name: 'edit',
           component: () => import('@/views/data/edit'),
           meta: { title: '编辑器' }
+        },
+        {
+          path: '/data/vuex',
+          name: 'vuex',
+          component: () => import('@/views/data/vuex'),
+          meta: { title: 'vuex' }
         }
         // {
         //   path: '/data/gchars',
