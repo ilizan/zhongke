@@ -98,5 +98,26 @@ export const navTreeData =
         //   meta: { title: '流程图(未)' }
         // }
       ]
+    },
+    {
+      path: '/system',
+      name: 'system',
+      meta: { title: '系统管理' },
+      redirect: '/',
+      // component: () => import('@/views/Home.vue'),
+      children: [
+        {
+          path: '/system/role',
+          name: 'role',
+          component: () => import('@/views/system/role.vue'),
+          meta: { title: '角色管理' }
+        },
+        {
+          path: '/system/user',
+          name: 'user',
+          component: () => import('@/views/system/user.vue'),
+          meta: { title: '用户管理' }
+        }
+      ]
     }
   ]

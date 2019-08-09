@@ -35,7 +35,7 @@ export default {
       store.commit("setArr", Math.round(Math.random() * 100));
     },
     delFn(){
-      store.commit('delArr',[]);
+      store.commit('delArr');
     }
   }
 };

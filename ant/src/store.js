@@ -27,8 +27,8 @@ export default new Vuex.Store({
     setArr(state, arrData) {
       state.arr.push(arrData);
     },
-    delArr(state, st) {
-      state.arr = st;
+    delArr(state) {
+      state.arr = [];
     }
   },
 
