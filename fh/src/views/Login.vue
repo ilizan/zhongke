@@ -86,7 +86,7 @@ export default {
     }
   },
   mounted() {
-    this.form.setFieldsValue({ username: "01", password: "00000" });
+    // this.form.setFieldsValue({ username: "01", password: "00000" });
   }
 };
 </script>

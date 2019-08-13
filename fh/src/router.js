@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Room from './views/Room.vue'
+import Main from './views/Main.vue'
+import A1 from './views/a1.vue'
 import Cookies from 'js-cookie'
 
 Vue.use(Router)
@@ -10,7 +13,25 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      redirect: '/room',
+      component: Home,
+      children: [
+        {
+          path: '/room',
+          name: 'room',
+          component: Room
+        },
+        {
+          path: '/main',
+          name: 'main',
+          component: Main
+        },
+        // {
+        //   path: '/a1',
+        //   name: 'a1',
+        //   component: A1
+        // }
+      ]
     },
     {
       path: '/login',
@@ -19,20 +40,6 @@ const router = new Router({
     }
   ]
 })
-// export default new Router({
-//   routes: [
-//     {
-//       path: '/',
-//       name: 'home',
-//       component: Home
-//     },
-//     {
-//       path: '/login',
-//       name: 'login',
-//       component: () => import(/* webpackChunkName: "about" */ './views/Login.vue')
-//     }
-//   ]
-// })
 
 
 
