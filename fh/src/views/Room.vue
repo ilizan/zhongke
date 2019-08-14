@@ -240,6 +240,7 @@ export default {
       }
       if (this.guidList.indexOf(this.inputs) > -1) {
         this.$message.warning("已扫该码");
+        this.inputs = "";
         this.$refs.inputs.focus();
         return;
       }
@@ -251,6 +252,9 @@ export default {
           .then(res => {
             if (res.code == 0) {
               _this.listData = JSON.parse(res.data);
+              if (_this.listData.length != _this.guidList.length) {
+                _this.$message.warning("此人无住宿信息");
+              }
               _this.listData.forEach((item, index) => {
                 item.xh = index + 1;
                 if (item.Change_Time) {
@@ -339,7 +343,7 @@ export default {
         title: "提示",
         content: "您确定取消该房间吗？",
         okText: "取消",
-        okType: 'danger',
+        okType: "danger",
         cancelText: "返回",
         onOk() {
           var arr = [];
@@ -413,7 +417,7 @@ export default {
             LODOP.SET_PRINT_STYLEA(0, "Bold", 1);
             LODOP.SET_PRINT_STYLEA(0, "Bold", 1);
             LODOP.ADD_PRINT_TEXT(46, 22, 60, 25, "房间号：");
-            LODOP.ADD_PRINT_TEXT(40, 74, 100, 25, "2001");
+            LODOP.ADD_PRINT_TEXT(40, 74, 100, 25, _this.cg.Room_NO);
             LODOP.SET_PRINT_STYLEA(0, "FontSize", 18);
             LODOP.SET_PRINT_STYLEA(0, "Bold", 1);
             LODOP.ADD_PRINT_TEXT(70, 22, 60, 25, "姓  名：");
@@ -458,15 +462,20 @@ export default {
     document.onkeydown = function(e) {
       let key = window.event.keyCode;
 
-      if (_this.visible_0 && _this.bl && key == 13&&_this.tableData.length==2) {
+      if (
+        _this.visible_0 &&
+        _this.bl &&
+        key == 13 &&
+        _this.tableData.length == 2
+      ) {
         _this.handle();
       } else if (_this.cg.vis && key == 13) {
         _this.cg.vis = false;
       } else {
-        if (key == 70) {
-          window.event.preventDefault(); //关闭浏览器快捷键
-          _this.save_onkeydown(); //;saveProject1()
-        }
+        // if (key == 70) {
+        // window.event.preventDefault(); //关闭浏览器快捷键
+        // _this.save_onkeydown(); //;saveProject1()
+        // }
       }
     };
   }

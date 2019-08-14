@@ -52,14 +52,14 @@ export default {
   },
   methods: {
     loginSubmit(e) {
-      this.loading = true;
       e.preventDefault();
       console.log("登录");
       this.form.validateFields((err, values) => {
         if (!err) {
+          this.loading = true;
           //验证通过
           const loginData = { ...values };
-          loginData.type='Login'
+          loginData.type = "Login";
           loginApi(loginData)
             .then(res => {
               if (res.code == 0) {
@@ -80,6 +80,7 @@ export default {
             .catch(res => {
               console.log(res);
               this.$message.error("登录失败");
+              this.loading = false;
             });
         }
       });
