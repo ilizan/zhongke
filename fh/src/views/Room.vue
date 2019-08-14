@@ -11,7 +11,12 @@
               <h2 class="main_title">品牌峰会住宿登记系统</h2>
               <a-form class="form_Main" @submit="handleSubmit">
                 <a-form-item label="请扫码" :label-col="{ span: 3 }" :wrapper-col="{ span: 20 }">
-                  <a-input ref="inputs" id="inputs" v-model="inputs" placeholder />
+                  <!-- <a-tooltip placement="topLeft">
+                    <template slot="title">
+                      <span>请先设置英文输入后再扫码</span>
+                    </template> -->
+                    <a-input ref="inputs" id="inputs" v-model="inputs" placeholder autocomplete="off" />
+                  <!-- </a-tooltip> -->
                 </a-form-item>
               </a-form>
             </a-row>
@@ -514,4 +519,5 @@ export default {
     color: red;
   }
 }
+
 </style>
