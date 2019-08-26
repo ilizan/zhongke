@@ -30,7 +30,7 @@
         </a-form>
         <a-form layout="inline">
           <a-form-item style="float:right;overflow: hidden;">
-            <a-button type="primary" @click="visible = true">新建</a-button>
+            <a-button type="primary" @click="visible = true">新建角色</a-button>
           </a-form-item>
         </a-form>
       </div>
@@ -55,10 +55,26 @@
       </a-form>
       <a-card title="选择菜单权限">
         <div>
-          <a-table rowKey="record_id" :columns="treeColumns" :dataSource="treeData" >
-              <span slot="actions" slot-scope="actions">
-121
-              </span>
+          <a-table
+            rowKey="record_id"
+            :columns="treeColumns"
+            :dataSource="treeData"
+            :rowSelection="rowSelection"
+          >
+            <template slot="actions" slot-scope="actions">
+              <p v-for="action in actions" :key="action.code">
+                <a-checkbox @change="onChange">
+                  <a-tag>{{action.name}}</a-tag>
+                </a-checkbox>
+              </p>
+            </template>
+            <span slot="resources" slot-scope="resources">
+              <p v-for="resource in resources" :key="resource.code">
+                <a-checkbox @change="onChange">
+                  <a-tag>{{resource.name}}</a-tag>
+                </a-checkbox>
+              </p>
+            </span>
           </a-table>
         </div>
       </a-card>
@@ -91,14 +107,30 @@ const treeColumns = [
     title: "动作权限",
     dataIndex: "actions",
     key: "actions",
-    scopedSlots: { customRender: 'actions'}
+    scopedSlots: { customRender: "actions" }
   },
   {
     title: "资源权限",
     dataIndex: "resources",
-    key: "resources"
+    key: "resources",
+    scopedSlots: { customRender: "resources" }
   }
 ];
+const rowSelection = {
+  onChange: (selectedRowKeys, selectedRows) => {
+    console.log(
+      `selectedRowKeys: ${selectedRowKeys}`,
+      "selectedRows: ",
+      selectedRows
+    );
+  },
+  onSelect: (record, selected, selectedRows) => {
+    console.log(record, selected, selectedRows);
+  },
+  onSelectAll: (selected, selectedRows, changeRows) => {
+    console.log(selected, selectedRows, changeRows);
+  }
+};
 import { treeData } from "../../mock/treeData";
 export default {
   name: "role",
@@ -108,11 +140,13 @@ export default {
       data,
       visible: false,
       treeColumns,
-      treeData: treeData.list
+      treeData: treeData.list,
+      rowSelection
     };
   },
   methods: {
     editRole(item) {
+      this.visible = true;
       console.log(item);
     },
     delRole(item) {
@@ -121,7 +155,10 @@ export default {
     handleOk(e) {
       console.log(e);
       this.visible = false;
-    }
+    },
+    onChange (e) {
+      console.log(`checked = ${e.target.checked}`)
+    },
   },
   mounted() {}
 };
