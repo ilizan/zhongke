@@ -53,7 +53,6 @@ export default {
   methods: {
     loginSubmit(e) {
       e.preventDefault();
-      console.log("登录");
       this.form.validateFields((err, values) => {
         if (!err) {
           this.loading = true;
