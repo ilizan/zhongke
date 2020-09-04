@@ -1,0 +1,41 @@
+.Item{
+  padding: 10px;
+}
+
+.Item .group .name{
+  float: left;
+  width: 30%;
+}
+.Item .group .value{
+  float: left;
+  width: 70%;
+}
+.valueInput{
+  float: left;
+  width: 100%;
+}
+.valueInput textarea{
+}
+.page-section-btns{
+  text-align: center;
+  padding: 10px 0 5px;
+}
+.btnSelect{
+  display: block;
+  margin-top: 10px;
+}
+.imgs{
+  margin: 10px 0;
+  float: left;
+  text-align: left;
+  width: 200px;
+}
+
+@media screen and (max-width: 320px) {
+  .Item .group .name {
+    width: 40%;
+  }
+  .Item .group .value {
+    width: 60%;
+  }
+}

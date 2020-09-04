@@ -1,0 +1,359 @@
+html {
+    font-size: 100px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: '微软雅黑', Arial, Helvetica, 'microsoft yahei', sans-serif;
+    background: #f2f2f2
+}
+body *{
+}
+* {
+    margin: 0;
+    padding: 0
+}
+ul,li{
+    display: block;
+}
+body {
+    font-size: 12px;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+    -webkit-touch-callout: none;
+    /* 禁用长触弹出的下载图片菜单 */
+    -webkit-user-select: none;
+    /* 禁用长触选择文字等功能 */
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+}
+#all{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('../images/bg.png');
+    background-size: 100% 100%;
+    height: 100%;
+    z-index: 10;
+}
+body *{
+    /* border:1px solid #ccc; */
+}
+
+/*去掉iPhone上的默认圆角样式*/
+
+input {
+    -webkit-appearance: none;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input {
+    -webkit-appearance: none;
+}
+
+textarea {
+    -webkit-appearance: none;
+}
+
+
+/*去出选中时高亮*/
+
+img,
+a,
+div {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+::selection {
+    background: none;
+}
+
+::-moz-selection {
+    background: none;
+}
+
+::-webkit-selection {
+    background: none;
+}
+
+
+/*隐藏bady滚动条*/
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+#main {
+    
+}
+
+
+/* d1 */
+
+.d1 {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    opacity: 1;
+    display: none;
+}
+
+.d1-introText {
+    width: 70%;
+    top: 15%;
+    left: 15%;
+    position: absolute;
+    text-align: center;
+}
+
+.d1-introText1,
+.d1-introText2,
+.d1-introText3 {
+    width: 80%;
+    transition: all 1.5s;
+    opacity: 0;
+    margin: 5px 0;
+}
+.d1-bgShow{
+    position: absolute;
+    width: 80%;
+    top: 10%;
+    left: 10%;
+    opacity: 0;
+}
+.d1-title{
+    font-size: 30px;
+    font-weight: inherit;
+    text-align: center;
+}
+.d1-info{
+    text-align: center;
+    margin-top: 40%;
+}
+.d1-info button{
+    padding: 10px 14px;
+    background-color: rgba(26, 26, 26, 0.5);
+    border: none;
+    border-radius: 3px;
+    color: #FFF;
+}
+/* d1 */
+
+
+/* d2 */
+.d2{
+    opacity: 0;
+    position: absolute;
+    top:0;right:0;bottom: 0;left: 0;
+    z-index: -1;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+div.swiper_Ms{
+    margin-left: 0;
+    overflow: hidden;
+}
+
+.d2_swiper{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0%;
+    z-index: -1;
+}
+.swiper-slide {
+    overflow: hidden;
+}
+.swiper_Ms .swiper-slide > div{
+    text-align: center;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto;
+    background-size: 100% 100%;
+}
+.swiper_Ms .swiper-slide > div.cl_0{
+    width: 80%;
+}
+.swiper_Ms .swiper-slide > div.cl_1{
+    width: 100%;
+}
+.swiper_Ms .swiper-slide > div.cl_2{
+    width: 90%;
+}
+.swiper_Ms .swiper-slide div img{
+    width: 100%;
+    display:block;
+}
+.swiper_Ms .swiper-slide div img.icons{
+    position: relative;
+}
+.swiper_Ms .swiper-slide div p{
+    font-size: 14px;
+}
+.swiper_Ms .swiper-slide div p label{
+    color: aqua;
+}
+/* d3 */
+
+.d3{
+    opacity: 0;
+    position: absolute;
+    top:0;right:0;left: 0;
+    z-index: 100;
+    background-color: #ccc;
+    display: none;
+}
+.d4{
+    opacity: 0;
+    position: absolute;
+    top:0;right:0;
+    bottom: 0;
+    left: 0;
+    z-index: 101;
+    background-image: url('../images/bg.png');
+    background-size: 100% 100%;
+    display: none;
+}
+.swiper_4{
+    
+}
+.sl_main{
+    padding-top: 5%;
+    width: 90%;
+    margin: 0 auto;
+}
+.d4_top{
+    text-align: right;
+}
+.sl_4_left{
+    float: left;
+    width: 65%;
+}
+.sl_4_left img{
+    width: 100%;
+}
+.sl_text_right{
+    text-align: right;
+}
+.sl_4_right {
+    float: right;
+    width: 30%;
+    padding: 0 10px;
+}
+.sl_4_right img{
+    width: 100%;
+}
+.sl_4_right p{
+    text-align: center;
+}
+.sl_4_right p button.voteBtn{
+    border:1px solid #cdcfd2;
+    padding: 6px 35px;
+    border-radius: 3px;
+    color: #FFF;
+    background-color: rgba(26, 26, 26, 0.5);
+
+}
+.d5{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 102;
+    background-image: url(../images/bg.png);
+    background-size: 100% 100%;
+    display: none;
+}
+.d5_top{
+    text-align: right;
+    height: 50px;
+}
+.d5_voteMain{
+
+}
+.d5_title{
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 40px;
+}
+.d5_cont{
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+}
+.d5_c_left{
+    float: left;
+    width: 55%;
+}
+.d5_c_left p{
+    font-size: 16px;
+    line-height: 30px;
+}
+.d5_c_left p label{
+    color: aqua;
+}
+.d5_c_right{
+    float: right;
+    width: 40%;
+}
+.d5_c_right img{
+    width: 100%;
+}
+.d5_footer{
+    text-align: center;
+    padding: 20px 0;
+}
+.d5_c_left p.d5_my{
+    font-size: 26px;
+}
+.d5_footer button{
+    border:1px solid #cdcfd2;
+    padding: 8px 40px;
+    border-radius: 3px;
+    color: #FFF;
+    background-color: rgba(152, 146, 146, 0.5);
+}
+#wrapperS1{
+    height: 80px; overflow: scroll;background-color: #ddd;
+}
+.closeDiv{
+    border: 1px solid #cdcfd2;
+    border-radius: 2px;
+    padding:5px 7px;
+    font-size: 15px;
+    background-color: transparent;
+    color: #FFF;
+    margin: 5px 5px 0 0;
+}
+.ts_as{
+    position: fixed;
+    top:0;
+    display: none;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.ts_as>div{
+    position: fixed;
+    width: 240px;
+    line-height: 23px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.7);
+    top: 50%;
+    margin-top: -30px;
+    left: 50%;
+    margin-left: -130px;
+}

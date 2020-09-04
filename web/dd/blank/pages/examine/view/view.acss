@@ -1,0 +1,29 @@
+.Item {
+  padding: 10px;
+}
+
+.Item .group .name {
+  float: left;
+  width: 30%;
+}
+
+.Item .group .value {
+  float: left;
+  width: 70%;
+}
+
+.imgs {
+  margin: 10px 0;
+  float: left;
+  text-align: left;
+  width: 200px;
+}
+
+@media screen and (max-width: 320px) {
+  .Item .group .name {
+    width: 40%;
+  }
+  .Item .group .value {
+    width: 60%;
+  }
+}

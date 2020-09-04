@@ -1,0 +1,183 @@
+/*全局样式*/
+*{padding:0;margin:0;}
+div,dl,dt,dd,form,h1,h2,h3,h4,h5,h6,img,ol,ul,li,table,th,td,p,span,a{border:0;}
+img,input{border:none;vertical-align:middle;}
+body{font-family: "Microsoft YaHei", 微软雅黑, STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;font-size:16px;text-align:center;background:#FFF;color:#505050;}
+html{overflow-y:scroll;}
+ul,ol{list-style-type:none;}
+th,td,input{font-size:20px;}
+input{outline:none;border:none;box-shadow:none;}
+h3{font-size:14px;}
+button{border:none;cursor:pointer;font-size:12px;background-color:transparent;}
+select{border-width:1px;_zoom:1;border-style:solid;padding-top:2px;font-size:12px;}
+.clear{clear:both;font-size:1px;height:0;visibility:hidden;line-height:0;}
+.clearfix:after{content:"";display:block;clear:both;}
+.clearfix{zoom:1;}
+a:link,a:visited{text-decoration:none;color:#505050;}
+a:hover,a:active{text-decoration:none;color:#F00;}
+/*文字选中效果*/
+*::selection {
+    background-color: #C21705;
+    color: white;
+}
+
+*::-moz-selection {
+    background-color: #C21705;
+    color: white;
+}
+
+*::-webkit-selection {
+    background-color: #C21705;
+    color: white
+}
+
+
+/* 公共部分-头部 */
+body{
+    padding-top: 70px;
+}
+.header{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: #FFF;
+    box-shadow: 0 0 5px #e0e0e0;
+}
+.head{
+    width:1140px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.logo_div{
+    float: left;
+    padding-top: 19px;
+}
+.logo_div .logo_img{
+    display: inline-block;
+}
+.menu_Div{
+    float: right;
+    position: relative;
+}
+.menu_Div ul{
+    overflow: hidden;
+}
+.menu_Div ul li{
+    float: left;
+}
+.menu_Div ul li a{
+    padding: 5px;
+    margin: 0 5px;
+    display: inline;
+    line-height: 70px;
+    font-size: 18px;
+    color: #484848;
+}
+.menu_Div ul li a:hover{
+    color: #F00;
+}
+
+.curBg { background:#F00;height:3px;position:absolute;bottom:5px;width:68px;left:0px;}
+/* 公共部分-头部结束 */
+
+
+
+
+.pub_title{
+    padding-bottom: 40px;
+}
+.pub_title > span{
+    position: relative;
+    font-size: 26px;
+    color: #000;
+}
+.pub_title > span:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 66px;
+    height: 2px;
+    background-color: #C21705;
+    left: -80px;
+    top: 19px;
+}
+.pub_title > span:after{
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 66px;
+    height: 2px;
+    background-color: #C21705;
+    right: -80px;
+    top: 19px;
+}
+.pub_title >span.tag_white::before,.pub_title > span.tag_white:after{
+    background-color: #FFF;
+}
+
+
+.footer{
+    width: 100%;
+    min-height: 200px;
+    background-image: url('../images/footer_bg.png');
+    background-attachment: fixed;
+}
+.footer .foot{
+    padding: 60px 0 10px;
+    width: 1140px;
+    margin: 0 auto;
+}
+.footLogo{
+    text-align: left;
+}
+.footLogo img{
+    width: 320px;
+}
+.footMenu{
+    overflow: hidden;
+    padding: 40px 0 100px;
+    border-bottom: 1px solid #FFF;
+}
+.footMenu ul{
+    overflow: hidden;
+    float: right;
+}
+.footMenu ul li{
+    float: left;
+    overflow: hidden;
+    padding: 10px 40px;
+}
+.footMenu ul li a{
+    font-size: 20px;
+    color: #FFF;
+}
+.copyright-text{
+    color: #FFF;
+    margin: 25px 0;
+}
+.copyright-text span{
+    margin: 0 3px;
+}
+
+#top {
+    display: none;
+    position: fixed;
+    z-index: 101;
+    top: 80%;
+    right: 30px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    color:#FFF;
+    opacity: 0.75;
+    cursor: pointer;
+    /* padding: 10px; */
+    background: red;
+    border-radius: 30px;
+    transition: all 0.26s ease-out 0s;
+}

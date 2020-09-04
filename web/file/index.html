@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上传图片</title>
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/fileStyle.css" rel="stylesheet" />
+    <script src="./js/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row c1">
+            <div class="col-xs-12">
+                <h3>上传图片</h3>
+            </div>
+            <div class="col-xs-12">
+                <div class="fileMain">
+                    选择图片
+                </div>
+            </div>
+            <div class="col-xs-12 btnDiv">
+                <a href="javascript:;" class="a-upload">
+                    <input class="file1" type="file" name="" id="">上传
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        本功能由<img src="./images/logo.png">开发
+    </footer>
+</body>
+
+</html>
+<script>
+    $(function () {
+        $(".fileMain").click(function () {
+            $(".file1").click();
+        })
+    })
+</script>

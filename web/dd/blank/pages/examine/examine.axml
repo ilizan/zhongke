@@ -1,0 +1,75 @@
+<view>
+  <view class="search">
+    <input value="{{searchValue}}" onInput="bindKeyInput" placeholder="公司名、合同号"/>
+    <view onTap="searchBtn">搜索</view>
+  </view>
+  <view class="examineAll">
+    <view class="examine" a:for="{{arr}}" a:for-item="item" onTap="toUrl">
+      <view data-show="{{item}}">
+        <view class="group">
+          <view class="name">
+      公司名：
+          </view>
+          <view class="value">{{item.Company_Name}}</view>
+        </view>
+        <view class="group">
+          <view class="name">
+      合同号：
+          </view>
+          <view class="value">{{item.Contract_Number}}</view>
+        </view>
+        <view class="group">
+          <view class="name">
+      状态：
+          </view>
+          <view class="value">{{item.TypeName}}</view>
+        </view>
+      </view>
+      <view class="handle" a:if="{{item.isShow}}">
+        <view class="view">
+          <navigator url="./view/view?guid={{item.Guid}}" open-type="navigate" hover-class="other-navigator-hover">
+            <button size="mini" type="default">详细</button>
+          </navigator>
+        </view>
+        <view class="edit">
+          <button size="mini" a:if="{{item.State == 0}}" type="warn" data-thisSelTask="{{item}}" onTap="selDate">{{item.NodeName}}</button>
+          <navigator url="{{item.AssociationForm}}?guid={{item.Guid}}" open-type="navigate" hover-class="other-navigator-hover">
+            <button size="mini" a:if="{{item.State != 0 && item.NodeName}}" type="warn">{{item.NodeName}}</button>
+          </navigator>
+        </view>
+      </view>
+    </view>
+    <view class="tsa" a:if="{{arr.length == 0}}">暂无数据</view>
+  </view>
+</view>
+<view class="modals" a:if="{{isSelDate}}">
+  <view animation="{{animMaskData}}" class="modal-mask"></view>
+  <view class="modal-container">
+    <view class="modal-close" onTap="selDateHide">×</view>
+    <view class="modal-content">
+      <view class="modal-title">
+        <view>选择复审时间：</view>
+        <view class="selMonth" onTap="selMonthList">
+          {{selMonth}}
+        </view>
+      </view>
+      <view class="mo-content">
+        <view class="fsList">
+          <view a:for="{{weekList}}" a:for-item="item" class="fsz">
+            {{item}}
+          </view>
+          <view class="fs" a:for="{{fsDateList}}" a:for-item="item">
+            <view class="cl_{{item.Surplus}}" data-date="{{item}}" onTap="dateSubmit">
+              <view class="dayS">
+              {{item.Day}}
+              </view>
+              <view class="surplus">
+              {{item.Surplus}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

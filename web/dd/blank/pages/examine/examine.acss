@@ -1,0 +1,178 @@
+.examine {
+  padding: 10px;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.examine .group {
+  line-height: 25px;
+  overflow: hidden
+}
+
+.examine .group .name {
+  float: left;
+  width: 25%;
+}
+
+.examine .group .value {
+  float: left;
+  width: 75%;
+}
+
+.handle {
+  line-height: 30px;
+  overflow: hidden
+}
+
+.handle .view {
+  width: 25%;
+  float: left;
+}
+
+.handle .edit {
+  width: 75%;
+  float: left;
+}
+
+.modals {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: transparent;
+}
+
+.modal-mask {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9;
+  opacity: 1;
+}
+
+.modal-container {
+  background-color: #FFF;
+  z-index: 10;
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  bottom: 0px;
+  height: 80%;
+  transform: translateY(0%);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.15rem;
+  right: 0.6rem;
+  color: rgb(136, 136, 136);
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+.modal-content {
+  height: 100%;
+}
+
+.modal-content .modal-title {
+  height: 0.54rem;
+  padding: 0.4rem;
+}
+.modal-content .modal-title >view{
+  float: left;
+  border:1px solid #FFF;
+  padding: 2px 5px;
+}
+.modal-content .modal-title >view.selMonth{
+  border:1px solid #ccc;
+  padding: 2px 5px;
+}
+.mo-content {
+  position: absolute;
+  top: 1.2rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y:scroll;
+}
+.fsList{
+  overflow: hidden;
+  border-top: 1px solid #ccc;
+}
+.fs{
+  border:1px solid #ccc;
+  width: 14%;
+  float: left;
+  margin-top: -1px;
+  margin-left: -1px;
+  overflow: hidden;
+  height: 60px;
+  position: relative;
+}
+.dayS{
+  line-height: 60px;
+  font-size: 18px;
+  text-align: center;
+}
+.surplus{
+  position: absolute;
+  right:5px;
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  font-size: 16px;
+  text-align: right;
+  color: #ccc;
+}
+.fsz{
+  border:1px solid #ccc;
+  width: 14%;
+  float: left;
+  margin-top: -1px;
+  margin-left: -1px;
+  overflow: hidden;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  position: relative;
+}
+.valueInput{
+  float: left;
+  width: 100%;
+}
+.cl_0{
+  color: #ccc;
+}
+.examineAll{
+  margin-top: 40px;
+}
+.search{
+  position: fixed;
+  top:0;right:0;
+  left:0;
+  height: 35px;
+  background: #FFF;
+}
+.search input{
+  float: left;
+  width: 70%;
+  border:1px solid #e9e9e9;
+}
+.search view{
+  width: 25%;
+  text-align: center;
+  background-color: #3292DF;
+  color: #FFF;
+  line-height: 31px;
+  height: 31px;
+  float: left;
+}
+
+@media screen and (max-width: 320px) {
+  .fs,.fsz{
+    width: 13%;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/examine/examine",
+    "pages/examine/view/view",
+    "pages/examine/edit/edit1/edit1",
+    "pages/examine/edit/edit2/edit2",
+    "pages/examine/edit/edit3/edit3",
+    "pages/examine/edit/edit4/edit4",
+    "pages/examine/edit/edit5/edit5",
+    "pages/examine/edit/edit6/edit6"
+  ],
+  "window": {
+    "defaultTitle": "复审"
+  }
+}

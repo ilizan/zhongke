@@ -1,0 +1,68 @@
+h3{
+    margin-top: 10px;
+    text-align: center;
+}
+.c1{
+    padding-top: 10px;
+}
+.fileMain{
+    height: 200px;
+    background-color: #52B9FB;
+    color: #FFF;
+    font-size: 26px;
+    border-radius: 7px;
+    text-align: center;
+    line-height: 200px;
+    margin-top: 40%;
+    box-shadow:4px 4px 1px #0099FF;
+}
+.btnDiv{
+    margin-top: 10px;
+}
+.a-upload {
+    width: 100%;
+    text-align: center;
+    padding:0 10px;
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+.footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    line-height: 40px;
+    text-align: center;
+    font-size: 12px;
+}
+.footer>img{
+    height: 25px;
+    margin: 0 2px;
+}

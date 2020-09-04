@@ -1,0 +1,52 @@
+<view>
+  <view class="Item">
+    <view class="group">
+      <view class="name">
+      公司名：
+      </view>
+      <view class="value">{{views.Company_Name}}</view>
+    </view>
+    <view class="group">
+      <view class="name">
+      合同号：
+      </view>
+      <view class="value">{{views.Contract_Number}}</view>
+    </view>
+    <view class="group">
+      <view class="name">
+      预定开始时间：
+      </view>
+      <view class="value">{{views.Start_Time}}</view>
+    </view>
+    <view class="group">
+      <view class="name">
+      预定结束时间：
+      </view>
+      <view class="value">{{views.End_Time}}</view>
+    </view>
+    <view class="group">
+      <view class="name">
+      制片姓名：
+      </view>
+      <view class="value">{{views.ProductionName}}</view>
+    </view>
+    <view class="group">
+      <view class="name">
+      状态：
+      </view>
+      <view class="value">{{views.TypeName}}</view>
+    </view>
+    <view class="margin_0">
+      分配编导
+    </view>
+    <view class="group">
+      <view class="name">
+      编导：
+      </view>
+      <view class="valueSel" onTap="getExecutiveDirector">
+        <view class="arrow">
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
